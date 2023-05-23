@@ -27,7 +27,7 @@ const myForm = document.getElementById('myForm');
 myForm.addEventListener('submit', function(e){
   e.preventDefault()
 
-  //création des variables et récupération id Name et errorName
+  //création des variables du formulaire
   const firstName = document.getElementById('first');
   const lastName = document.getElementById('last');
   const myEmail = document.getElementById('email');
@@ -37,6 +37,7 @@ myForm.addEventListener('submit', function(e){
   const form = document.getElementById('myForm');
   const checkbox = document.getElementById('checkbox1')
 
+  // creéation des variables de présentation d'erreur
   const errorFirstName = document.getElementById('errorFirstName');
   const errorLastName = document.getElementById('errorLastName');
   const errorEmail = document.getElementById('errorEmail');
@@ -94,13 +95,13 @@ myForm.addEventListener('submit', function(e){
 
 
    // vérification de participation
-   const quantityRegxp = /^[0-9]+$/
+   const quantityRegExp = /^[0-99]+$/
 
    if (participationQuantity.value.trim()===""){
     errorQuantity.innerHTML = "ce champ est obligatoire.";
     errorQuantity.style.color = 'red';
     e.preventDefault();
-  } else if ( quantityRegxp.test(participationQuantity.value)=== false ) {
+  } else if ( quantityRegExp.test(participationQuantity.value)=== false ) {
     errorQuantity.innerHTML = " veuillez saisir une valeur numérique.";
     errorQuantity.style.color = 'red';
     e.preventDefault();
