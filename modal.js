@@ -32,9 +32,10 @@ myForm.addEventListener('submit', function(e){
   const lastName = document.getElementById('last');
   const myEmail = document.getElementById('email');
   const myBirthdate = document.getElementById('birthdate');
-  const partycipationQuantity = document.getElementById('quantity');
+  const participationQuantity = document.getElementById('quantity');
   const radioButton = document.getElementById('location');
-  const myCheckbox = document.getElementById('checkbox')
+  const form = document.getElementById('myForm');
+  const checkbox = document.getElementById('checkbox1')
 
   const errorFirstName = document.getElementById('errorFirstName');
   const errorLastName = document.getElementById('errorLastName');
@@ -78,8 +79,7 @@ myForm.addEventListener('submit', function(e){
   // vérification de email
   const emailRegExp = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/;
 
-   // condition de validation du champ nom
-   console.log(myBirthdate.value)
+   // condition de validation du champ email
    if (myEmail.value.trim()===""){
      errorEmail.innerHTML = "ce champ est obligatoire.";
      errorEmail.style.color = 'red';
@@ -92,12 +92,23 @@ myForm.addEventListener('submit', function(e){
      errorEmail.innerHTML = ""
    }
 
-   // vérification de date
-  //  const myDate = new Date();
-        //  month = myDate.getMonth()+ 01;
-        //  date = myDate.getDate();
-        //  day = myDate.getDay();
 
+   // vérification de participation
+   const quantityRegxp = /^[0-9]+$/
+
+   if (participationQuantity.value.trim()===""){
+    errorQuantity.innerHTML = "ce champ est obligatoire.";
+    errorQuantity.style.color = 'red';
+    e.preventDefault();
+  } else if ( quantityRegxp.test(participationQuantity.value)=== false ) {
+    errorQuantity.innerHTML = " veuillez saisir une valeur numérique.";
+    errorQuantity.style.color = 'red';
+    e.preventDefault();
+  }else{
+    errorQuantity.innerHTML = ""
+  }
+
+   // vérification de date
    if (myBirthdate.value.trim()===""){
     errorBirthdate.innerHTML = "ce champ est obligatoire.";
     errorBirthdate.style.color = 'red';
@@ -108,7 +119,6 @@ myForm.addEventListener('submit', function(e){
 
    // vérification radio bouton
    if (getRadioButton(form.elements["location"]) === undefined){
-    valide = false;
     errorRadio.innerHTML = "veuillez sélectionner une localisation";
     errorRadio.style.color = 'red'
    }else{
@@ -116,8 +126,7 @@ myForm.addEventListener('submit', function(e){
    }
 
    // vérification checkbox
-   if (getCheckbox(form.elements["accord"]).length === 0){
-    valide = false;
+   if(checkbox.checked=== false){
     errorCheckbox.innerHTML = "veuillez cocher un ou plusiers champ"
     errorCheckbox.style.color = 'red'
    }else{
@@ -130,7 +139,7 @@ myForm.addEventListener('submit', function(e){
     e.preventDefault(); //empeche les données être transfére au serveur
    }
 });
-
+// function de contrôlle du radio button
 function getRadioButton(radioBouton){
   let choix;
   for (let radio of radioBouton){
@@ -138,4 +147,5 @@ function getRadioButton(radioBouton){
       choix = radio.value;
     }
   }
+  return choix;
 }
