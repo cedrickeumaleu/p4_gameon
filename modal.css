@@ -2,6 +2,8 @@
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
+  --color-success:#2ecc71;
+  --color-error:#e74c3c;
 }
 * {
   box-sizing: border-box;
@@ -208,7 +210,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after {
+/* .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
   color: #e54858;
@@ -225,6 +227,19 @@ input {
 }
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
+} */
+
+/* style champ error*/
+.formData .error{
+  font-size: 12px;
+}
+
+/*style color ipute error*/
+.formData.error input{
+  border-color: red;
+}
+.formData.success input{
+  border-color: white;
 }
 
 input[data-error]::after {
