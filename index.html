@@ -54,37 +54,37 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="close closeModal"></span>
           <div class="modal-body">
-            <form class="reserve" action="index.html" method="get" id="myForm">
-              <div class="formData ">
+            <form class="reserve" action="index.html" method="get" id="myForm" >
+              <div class="formData " id="formData">
                 <label for="first">Prénom</label><br>
                 <input class="text-control" type="text" id="first" name="first"/><br>
-                <small class="error"></small>
+                <small class="error" id="errorFirstName"></small>
               </div>
               <br>
               <div class="formData ">
                 <label for="last">nom</label><br>
-                <input class="text-control" type="text" id="last" name="last"/><br>
-                <small class="error"></small>
+                <input class="text-control error" type="text" id="last" name="last"/><br>
+                <small class="error" id="errorLastName"></small>
               </div>
               <br>
               <div class="formData ">
                 <label for="email">email</label><br>
                 <input class="text-control" type="email" id="email" name="emai"/><br>
-                <small class="error"></small>
+                <small class="error" id="errorEmail"></small>
               </div>
               <br>
               <div class="formData">
                 <label>Date de naissance</label><br>
                 <input class="text-control" type="date" id="birthdate" name="birthdate"/><br>
-                <small class="error"></small>
+                <small class="error" id="errorBirthdate"></small>
               </div>
               <br>
               <div class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input  class="text-control" id="quantity" name="quantity" min="0" max="99"><br>
-                <small class="error"></small>
+                <input  class="text-control " id="quantity" name="quantity" min="0" max="99"><br>
+                <small class="error" id="errorQuantity"></small>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div class="formData">
@@ -149,7 +149,7 @@
                   Portland</label
                 >
                 <br>
-                <small class="error"></small>
+                <small class="error" id="errorRadio"></small>
               </div>
 
               <div class="formData">
@@ -170,7 +170,7 @@
                   Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
-                <small class="error"></small>
+                <small class="error" id="errorCheckbox"></small>
 
               </div>
               <input
@@ -180,9 +180,18 @@
                 value="C'est parti"
               />
               <br>
-              <small class="error"></small>
+              <small class="error" id="errorForm"></small>
 
             </form>
+            <div class="validation hidden" >
+               Merci pour votre instription
+               <input
+                class="close btn-submit"
+                type="submit"
+                class="button"
+                value="Fermer"
+              />
+            </div>
           </div>
         </div>
       </div>

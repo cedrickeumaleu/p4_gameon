@@ -210,7 +210,9 @@ input {
   font-size: 20px;
   height: 48px;
 }
-/* .formData[data-error]::after {
+
+
+.formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
   color: #e54858;
@@ -227,20 +229,29 @@ input {
 }
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
-} */
-
-/* style champ error*/
-.formData .error{
-  font-size: 12px;
 }
 
+.hidden{
+  display: none;
+}
+
+/* style champ error*/
+ /* .formData small{
+  visibility: hidden;
+} */
+
 /*style color ipute error*/
-.formData.error input{
+/* .formData.error input{
   border-color: red;
 }
 .formData.success input{
   border-color: white;
 }
+
+.formData.error small{
+  color: red;
+  visibility: visible;
+}  */
 
 input[data-error]::after {
     content: attr(data-error);
@@ -311,7 +322,7 @@ input[data-error]::after {
   left: 21%;
   top: 19%;
 }
-.close {
+.closeModal {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -321,8 +332,8 @@ input[data-error]::after {
   cursor: pointer;
   transform: scale(0.7);
 }
-.close:before,
-.close:after {
+.closeModal:before,
+.closeModal:after {
   position: absolute;
   left: 15px;
   content: " ";
@@ -330,10 +341,10 @@ input[data-error]::after {
   width: 3px;
   background-color: #fff;
 }
-.close:before {
+.closeModal:before {
   transform: rotate(45deg);
 }
-.close:after {
+.closeModal:after {
   transform: rotate(-45deg);
 }
 .btn-submit,
