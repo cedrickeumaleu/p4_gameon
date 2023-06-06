@@ -54,7 +54,8 @@ const myForm = document.getElementById('myForm');
  const errorRadio = document.getElementById('errorRadio');
  const errorCheckbox = document.getElementById('errorCheckbox');
  const errorForm = document.getElementById('errorForm');
- const errorControl = document.querySelector('.text-control')
+
+ 
 
 myForm.addEventListener('submit', function(e){
   e.preventDefault();
@@ -62,10 +63,9 @@ myForm.addEventListener('submit', function(e){
   myForm_verify();
 });
 
-
+// vérification et validation du formulaire
 function myForm_verify(){
-  let isError = false;   
-  
+  let isError = false;
 
   // condition de validation du champ prenom
 
@@ -81,6 +81,7 @@ function myForm_verify(){
     errorFirstName.innerHTML = " le prenom doit comporter au moins 02 lettres, des tirets uniquement si possible.";
     isError = true;
     errorFirstName.style.color = 'red';
+   
   }else{
     
   };
@@ -173,7 +174,6 @@ function myForm_verify(){
    }
 
 };
-
 
 
 // function de contrôlle du radio button
