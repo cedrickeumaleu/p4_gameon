@@ -304,6 +304,8 @@ main {
 
 .validation p {
   margin-top: 270px;
+  margin-bottom: 250px;
+  text-align: center;
 }
 
 .modal-body {
