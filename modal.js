@@ -1,3 +1,5 @@
+
+// function de traitement de la bar de navigation
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -13,6 +15,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const modalvalid = document.querySelector ('.validation');
 const closeBtn = document.querySelectorAll('.close');
+const body = document.querySelector('body')
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -20,6 +23,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  body.classList.add('modalOpen');
 }
 
 // fermeture de la modal
@@ -27,13 +31,14 @@ closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
 function closeModal() {
   let x = document.querySelector('.bground')
   x.style.display = "none";
+  body.classList.remove('modalOpen');
 }
 
 
-//traitement du formullaire
+//appel du formullaire
 const myForm = document.getElementById('myForm');
 
- //création des variables du formulaire
+ //création des variables des champs du formulaire
  const firstName = document.getElementById('first');
  const lastName = document.getElementById('last');
  const myEmail = document.getElementById('email');
@@ -68,35 +73,33 @@ function myForm_verify(){
   let isError = false;
 
   // condition de validation du champ prenom
-
   const myRegExp = /^[a-zA-Z-\s]{2,15}$/;
 
   if (firstName.value ===""){
     errorFirstName.innerHTML = "ce champ est obligatoire.";
     isError = true;
     errorFirstName.style.color = 'red';
-    
-
+    firstName.style.border= '2px solid red'
   } else if (myRegExp.test(firstName.Value) ===false) {
     errorFirstName.innerHTML = " le prenom doit comporter au moins 02 lettres, des tirets uniquement si possible.";
     isError = true;
     errorFirstName.style.color = 'red';
+    firstName.style.border= '2px solid red'
    
-  }else{
-    
-  };
+  }
 
   // condition de validation du champ nom
   if (lastName.value.trim()===""){
     errorLastName.innerHTML = "ce champ est obligatoire.";
     isError = true;
     errorLastName.style.color = 'red';
+    lastName.style.border= '2px solid red'
   
   } else if (myRegExp.test(lastName.value) ===false) {
     errorLastName.innerHTML = " le prenom doit comporter au moins 02 lettres, des tirets uniquement si possible..";
     isError = true;
     errorLastName.style.color = 'red';
-  
+    lastName.style.border= '2px solid red'
   }else{
     errorLastName.innerHTML = "";
     
@@ -110,12 +113,12 @@ function myForm_verify(){
      errorEmail.innerHTML = "ce champ est obligatoire.";
      isError = true;
      errorEmail.style.color = 'red';
-    //  e.preventDefault();
+     myEmail.style.border= '2px solid red'
    } else if (emailRegExp.test(myEmail.value) ===false) {
      errorEmail.innerHTML = " veuillez saisir un adresse mail valide.";
      isError = true;
      errorEmail.style.color = 'red';
-    //  e.preventDefault();
+     myEmail.style.border= '2px solid red'
    }else{
      errorEmail.innerHTML = ""
    }
@@ -128,12 +131,12 @@ function myForm_verify(){
     errorQuantity.innerHTML = "ce champ est obligatoire.";
     isError = true;
     errorQuantity.style.color = 'red';
-    // e.preventDefault();
+    myQuantity.style.border= '2px solid red'
   } else if ( quantityRegExp.test(myQuantity.value)=== false ) {
     errorQuantity.innerHTML = " veuillez saisir une valeur numérique.";
     isError = true;
     errorQuantity.style.color = 'red';
-    // e.preventDefault();
+    myQuantity.style.border= '2px solid red'
   }else{
     errorQuantity.innerHTML = ""
   }
@@ -143,7 +146,7 @@ function myForm_verify(){
     errorBirthdate.innerHTML = "ce champ est obligatoire.";
     isError = true;
     errorBirthdate.style.color = 'red';
-    // e.preventDefault();
+    myBirthdate.style.border= '2px solid red'
    }else {
     errorBirthdate.innerHTML = ""
    }
