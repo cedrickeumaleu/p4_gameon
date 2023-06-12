@@ -86,6 +86,8 @@ function myForm_verify(){
     errorFirstName.style.color = 'red';
     firstName.style.border= '2px solid red'
    
+  }else{
+    errorFirstName.innerHTML=""
   }
 
   // condition de validation du champ nom

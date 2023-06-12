@@ -41,7 +41,7 @@ img {
   width: 250px;
 }
 
-/* nav bar *************/
+/* nav bar deckstop*************/
 .topnav {
   overflow: hidden;
   margin: 30px 0;
@@ -140,7 +140,7 @@ img {
     display: block;
   }
 
-
+/*** class img****/
   .header-logo img {
     width: 135px;
   }
@@ -162,7 +162,7 @@ img {
   }
 
   /******responsive modal******/
-
+  /****modification de la forme ***/
   .bground .content {
     top: 40px;
     border-radius: 10px 10px 0 0;
@@ -190,7 +190,8 @@ img {
     text-align: left;
 
   }
-
+  
+  /*** masquer la class modalOPEN en mobile ***/
   body.modalOpen {
     overflow: hidden;
 
@@ -302,12 +303,14 @@ main {
   
 }
 
+/***class du traitement de texte sur la page de validation**/
 .validation p {
   margin-top: 270px;
   margin-bottom: 250px;
   text-align: center;
 }
 
+/** structure de la modal**/
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
@@ -342,7 +345,7 @@ input {
   height: 48px;
 }
 
-
+/**style de la div qui anglobe les input**/
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -364,7 +367,7 @@ input {
   border: 2px solid #e54858;
 }
 
-/*********class pour la cacher la modal***/
+/*********class pour cacher la modal***/
 .hidden {
   display: none;
 }
@@ -448,6 +451,7 @@ input[data-error]::after {
   top: 19%;
 }
 
+/***style de la fermeture de la modal**/
 .closeModal {
   position: absolute;
   right: 15px;
@@ -567,7 +571,7 @@ input[data-error]::after {
   z-index: 99;
 }
 
-/* Hide the items when the select box is closed: */
+/* Masquez les éléments lorsque la boîte de sélection est fermée */
 .select-hide {
   display: none;
 }
@@ -583,6 +587,7 @@ input[data-error]::after {
   font-size: 14px;
 }
 
+/** section de presentation de la page d'accueil**/
 .hero-section {
   min-height: 93vh;
   border-radius: 10px;
@@ -640,10 +645,12 @@ input[data-error]::after {
   margin-top: 59px;
 }
 
+/**div qui contien l'image**/
 .hero-img {
   grid-column: span 8;
 }
 
+/** style image page d'accueil**/
 .hero-img img {
   width: 100%;
   height: 100%;
@@ -651,6 +658,7 @@ input[data-error]::after {
   padding: 0;
 }
 
+/***style bas de page**/
 .copyrights {
   color: #fe142f;
   padding: 0;
@@ -669,13 +677,14 @@ footer {
   margin: 0 20px;
 }
 
+/*** resposive mobile page d'accueil***/
 @media screen and (max-width: 540px) {
   .hero-section {
     display: block;
     box-shadow: unset;
     width: 100%;
   }
-
+  
   .hero-content {
     background: #fff;
     color: #000;
