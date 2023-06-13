@@ -73,24 +73,27 @@ function myForm_verify(){
   let isError = false;
 
   // condition de validation du champ prenom
-  const myRegExp = /^[a-zA-Z-\s]{2,15}$/;
+  const RegExp = /^[a-zA-Z-\s]{2,15}$/;
 
   if (firstName.value ===""){
     errorFirstName.innerHTML = "ce champ est obligatoire.";
     isError = true;
     errorFirstName.style.color = 'red';
     firstName.style.border= '2px solid red'
-  } else if (myRegExp.test(firstName.Value) ===false) {
+  } else if (RegExp.test(firstName.value) ===false) {
     errorFirstName.innerHTML = " le prenom doit comporter au moins 02 lettres, des tirets uniquement si possible.";
     isError = true;
     errorFirstName.style.color = 'red';
-    firstName.style.border= '2px solid red'
+    firstName.style.border= '2px solid red';
    
   }else{
     errorFirstName.innerHTML=""
+    firstName.style.border= '2px solid white';
   }
 
   // condition de validation du champ nom
+  const myRegExp = /^[a-zA-Z-\s]{2,15}$/;
+
   if (lastName.value.trim()===""){
     errorLastName.innerHTML = "ce champ est obligatoire.";
     isError = true;
@@ -98,12 +101,13 @@ function myForm_verify(){
     lastName.style.border= '2px solid red'
   
   } else if (myRegExp.test(lastName.value) ===false) {
-    errorLastName.innerHTML = " le prenom doit comporter au moins 02 lettres, des tirets uniquement si possible..";
+    errorLastName.innerHTML = " le nom doit comporter au moins 02 lettres, des tirets uniquement si possible..";
     isError = true;
     errorLastName.style.color = 'red';
     lastName.style.border= '2px solid red'
   }else{
     errorLastName.innerHTML = "";
+    lastName.style.border= '2px solid white'
     
   };
 
@@ -123,6 +127,7 @@ function myForm_verify(){
      myEmail.style.border= '2px solid red'
    }else{
      errorEmail.innerHTML = ""
+     myEmail.style.border= '2px solid white'
    }
 
 
@@ -134,23 +139,32 @@ function myForm_verify(){
     isError = true;
     errorQuantity.style.color = 'red';
     myQuantity.style.border= '2px solid red'
-  } else if ( quantityRegExp.test(myQuantity.value)=== false ) {
+  } else if ( quantityRegExp.test(myQuantity.value) ===false) {
     errorQuantity.innerHTML = " veuillez saisir une valeur numérique.";
     isError = true;
     errorQuantity.style.color = 'red';
     myQuantity.style.border= '2px solid red'
   }else{
     errorQuantity.innerHTML = ""
+    myQuantity.style.border= '2px solid white'
   }
 
    // vérification de date
+   const dateReg = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/
+
    if (myBirthdate.value.trim()===""){
     errorBirthdate.innerHTML = "ce champ est obligatoire.";
     isError = true;
     errorBirthdate.style.color = 'red';
     myBirthdate.style.border= '2px solid red'
-   }else {
+   } else if(dateReg.test(myBirthdate.value) ===false){
+   errorBirthdate.innerHTML = " veuillez saisir un format de date.";
+   isError = true;
+    errorBirthdate.style.color = "red"
+    myBirthdate.style.border= '2px solid red'
+   }else{
     errorBirthdate.innerHTML = ""
+    myBirthdate.style.border= '2px solid white'
    }
 
    // vérification radio bouton
